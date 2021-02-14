@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-6 offset-3">
+        <form #eventForm="ngForm" (ngSubmit)="onFormSubmit()">
+
+            <div class="form-group">
+                <label>Name</label>
+                <input [(ngModel)]="event.name" name="name" type="text" class="form-control" pattern=".{8,}" required>
+                <div [hidden]="eventForm.controls.name?.valid" class="error-message">
+                    It is a required field and must be 8 characters minimum.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Date</label>
+                <input [(ngModel)]="event.date" name="date" type="text" class="form-control" required>
+                <div [hidden]="eventForm.controls.date?.valid" class="error-message">
+                    Date is a required field and must be a string.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Time</label>
+                <input [(ngModel)]="event.time" name="time" type="text" class="form-control" required>
+                <div [hidden]="eventForm.controls.time?.valid" class="error-message">
+                    Time is a required field and must be a string.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Location / Country</label>
+                <input [(ngModel)]="event.location.country" name="country" type="text" class="form-control" required>
+                <div [hidden]="eventForm.controls.country?.valid" class="error-message">
+                    Location / Country is a required field and must be a string.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Location / City</label>
+                <input [(ngModel)]="event.location.city" name="city" type="text" class="form-control" required>
+                <div [hidden]="eventForm.controls.city?.valid" class="error-message">
+                    Location / City is a required field and must be a string.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <input [(ngModel)]="event.location.address" name="address" type="text" class="form-control" required>
+                <div [hidden]="eventForm.controls.address?.valid" class="error-message">
+                    Location / Address is a required field and must be a string.
+                </div>
+            </div>
+            <div class="text-center">
+
+                <button [disabled]="eventForm.invalid" class="btn btn-primary">Submit changes and save to database
+                    <i class="fa fa-save"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
